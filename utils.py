@@ -29,10 +29,10 @@ def get_args():
     parser.add_argument('--train_embed', action='store_false', dest='fix_emb')
     parser.add_argument('--gpu', type=int, default=0)
     parser.add_argument('--save_path', type=str, default='results')
-    parser.add_argument('--snli_root', type=str, default='/home/shawnguo/Datasets/')
-    parser.add_argument('--data_cache', type=str, default=os.path.join('/home/shawnguo/Datasets', 'GloVe'))
+    parser.add_argument('--snli_root', type=str, default='/data/shawnguo/')
+    parser.add_argument('--data_cache', type=str, default=os.path.join('/data/shawnguo/', 'GloVe'))
     parser.add_argument('--vector_cache', type=str,
-                        default=os.path.join('/home/shawnguo/Datasets', 'GloVe/input_vectors.pt'))
+                        default=os.path.join('/data/shawnguo/', 'GloVe/input_vectors.pt'))
     parser.add_argument('--word_vectors', type=str, default='glove.42B')
     parser.add_argument('--resume_snapshot', type=str, default='')
     parser.add_argument('--snapshot_prefix', type=str, default='')

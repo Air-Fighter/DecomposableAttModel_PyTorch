@@ -19,7 +19,7 @@ class Linear(Bottle, nn.Linear):
 
 
 class FeedForwardLayer(nn.Module):
-    def __init__(self, in_dim, hidden_dim, out_dim, activation=nn.PReLU(), dp_ratio=0.2):
+    def __init__(self, in_dim, hidden_dim, out_dim, activation=nn.SELU(), dp_ratio=0.2):
         super(FeedForwardLayer, self).__init__()
         self.name = 'FeedForwardLayer'
 
@@ -46,7 +46,7 @@ class DecomposableModel(nn.Module):
         self.embed = nn.Embedding(config.n_embed, config.d_embed)
         self.projection = Linear(config.d_embed, config.d_proj)
         self.dropout = nn.Dropout(p=config.dp_ratio)
-        self.activation = nn.ReLU()
+        self.activation = nn.SELU()
 
         self.F = FeedForwardLayer(config.d_embed, config.d_hidden, config.d_F, self.activation, config.dp_ratio)
         self.G = FeedForwardLayer(2 * config.d_embed, config.d_hidden, config.d_G, self.activation, config.dp_ratio)
